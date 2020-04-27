@@ -7,7 +7,7 @@ import * as AbsintheSocket from '@absinthe/socket'
 import { createAbsintheSocketLink } from '@absinthe/socket-apollo-link'
 import { split } from 'apollo-link'
 import { hasSubscription } from '@jumpn/utils-graphql'
-
+import camelcaseKeys from "camelcase-keys"
 
 const getHostname = (host) => {
   const hostname = window.location.hostname
@@ -68,4 +68,22 @@ export const createClient = (host = '', token = '') => {
   const client = new ApolloClient({ link, cache })
 
   return client
+}
+
+/**
+ * Maps the GraphQL response from  `useMutation` to an error object.
+ * This expects the server to implement the Elixir.Absinthe.HandleChangesetErrors
+ * @param {Object} errors 
+ * @return {Object}
+ */
+export const mapErrors = (errors) => {
+  const { graphQLErrors } = errors
+  if (!graphQLErrors) return errors
+
+  errors = graphQLErrors.reduce((prev, { message }) => {
+    const [key, value] = message.split(": ")
+    return { ...prev, [key]: value }
+  }, {})
+
+  return camelcaseKeys(errors)
 }

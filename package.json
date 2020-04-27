@@ -13,5 +13,8 @@
     "apollo-boost": "^0.4.7",
     "apollo-link": "^1.2.14",
     "phoenix": "^1.5.1"
+  },
+  "devDependencies": {
+    "camelcase-keys": "^6.2.2"
   }
 }
