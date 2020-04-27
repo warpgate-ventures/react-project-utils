@@ -5,5 +5,13 @@
   "main": "index.js",
   "repository": "github.com/warpgate-ventures/react-project-utils",
   "author": "James Florentino",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@absinthe/socket": "^0.2.1",
+    "@absinthe/socket-apollo-link": "^0.2.1",
+    "@jumpn/utils-graphql": "^0.6.0",
+    "apollo-boost": "^0.4.7",
+    "apollo-link": "^1.2.14",
+    "phoenix": "^1.5.1"
+  }
 }
