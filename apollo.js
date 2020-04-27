@@ -29,8 +29,8 @@ const getSocketHost = () => {
   return getHostname().replace('http', 'ws')
 }
 
-export const createClient = (hostname = '', token = '') => {
-  const hostname = getHostname()
+export const createClient = (host = '', token = '') => {
+  const hostname = getHostname(host)
   const socketHost = getSocketHost()
 
   const httpLink = new HttpLink({
