@@ -6,7 +6,7 @@
   "repository": "github.com/warpgate-ventures/react-project-utils",
   "author": "James Florentino",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "camelcase-keys": "^6.2.2",
     "@absinthe/socket": "^0.2.1",
     "@absinthe/socket-apollo-link": "^0.2.1",
