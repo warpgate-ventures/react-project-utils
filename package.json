@@ -1,0 +1,9 @@
+{
+  "name": "react-project-utils",
+  "version": "1.0.0",
+  "description": "Collection of commonly used functions in Warpgate's web development projects",
+  "main": "index.js",
+  "repository": "github.com/warpgate-ventures/react-project-utils",
+  "author": "James Florentino",
+  "license": "MIT"
+}
