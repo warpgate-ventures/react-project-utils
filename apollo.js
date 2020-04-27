@@ -25,13 +25,13 @@ const getHostname = (host) => {
   return host
 }
 
-const getSocketHost = () => {
-  return getHostname().replace('http', 'ws')
+const getSocketHost = (host) => {
+  return getHostname(host).replace('http', 'ws')
 }
 
 export const createClient = (host = '', token = '') => {
   const hostname = getHostname(host)
-  const socketHost = getSocketHost()
+  const socketHost = getSocketHost(host)
 
   const httpLink = new HttpLink({
     uri: hostname + '/graphql'
