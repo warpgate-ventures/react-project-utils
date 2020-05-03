@@ -1,0 +1,5 @@
+export const add = (a, b) => number(a) + number(b)
+export const subtract = (a, b) => number(a) - number(b)
+export const divide = (a, b) => number(a) / number(b)
+export const multiply = (a, b) => number(a) * number(b)
+export const number = (n) => parseFloat(n || 0)
