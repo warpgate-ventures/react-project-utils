@@ -9,7 +9,9 @@ import { split } from 'apollo-link'
 import { hasSubscription } from '@jumpn/utils-graphql'
 import camelcaseKeys from "camelcase-keys"
 
-const getHostname = (host) => {
+const getHostname = ({ host, forceProd }) => {
+  if (forceProd) return host
+
   const hostname = window.location.hostname
 
   let isDev = hostname.indexOf('localhost') > -1
@@ -25,13 +27,13 @@ const getHostname = (host) => {
   return host
 }
 
-const getSocketHost = (host) => {
-  return getHostname(host).replace('http', 'ws')
+const getSocketHost = (params) => {
+  return getHostname(params).replace('http', 'ws')
 }
 
-export const createClient = (host = '', token = '') => {
-  const hostname = getHostname(host)
-  const socketHost = getSocketHost(host)
+export const createClient = ({ host = '', token = '', forceProd = false }) => {
+  const hostname = getHostname({ host, forceProd })
+  const socketHost = getSocketHost({ host, forceProd })
 
   const httpLink = new HttpLink({
     uri: hostname + '/graphql'
