@@ -16,6 +16,6 @@
     "phoenix": "^1.5.1"
   },
   "devDependencies": {
-    "moment": "^2.25.3"
+    "moment": "^2.29.4"
   }
 }
